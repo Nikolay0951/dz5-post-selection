@@ -4,7 +4,7 @@ const links = [];
 
 const addFormEl = document.createElement('form');
 addFormEl.innerHTML = `
-<div class="form1">
+<div class="form">
     <input data-id="link" placeholder="Введите тест или url источника" size="30">
 </div>
     <select data-id="type">
@@ -19,17 +19,10 @@ addFormEl.innerHTML = `
 const linkEl = addFormEl.querySelector('[data-id=link]');
 const typeEl = addFormEl.querySelector('[data-id=type]');
 
-
 addFormEl.onsubmit = function (ev) {
-    console.log(ev);
-    console.log('submit');
     ev.preventDefault();
-
-    console.dir(linkEl);
     const value = linkEl.value;
     const type = typeEl.value;
-
-    console.log(type);
     links.push({
         value,
         type,
@@ -56,7 +49,7 @@ function rebuildList(containerEl, items) {
             <div class="card">
                 <div class="card-body">
                     <p class="card-text">${item.value}</p>
-                    <button class="btn btn-primary" data-action="like">👍🏼: ${item.likes}</button>
+                    <button class="btn btn-primary" data-action="like">👍🏼 ${item.likes}</button>
                     <button class="btn btn-secondary" data-action="dislike">👎🏻</button>
                 </div>
             </div>
@@ -66,7 +59,7 @@ function rebuildList(containerEl, items) {
             <div class="card">
                 <img src="${item.value}" class="card-img-top">
                 <div class="card-body">
-                    <button class="btn btn-primary" data-action="like">👍🏼: ${item.likes}</button>
+                    <button class="btn btn-primary" data-action="like">👍🏼 ${item.likes}</button>
                     <button class="btn btn-secondary" data-action="dislike">👎🏻</button>
                 </div>
             </div>
@@ -78,7 +71,7 @@ function rebuildList(containerEl, items) {
                      <iframe class="embed-responsive-item" src="${item.value}"></iframe>
                 </div>
                 <div class="card-body">
-                    <button class="btn btn-primary" data-action="like">👍🏼: ${item.likes}</button>
+                    <button class="btn btn-primary" data-action="like">👍🏼 ${item.likes}</button>
                     <button class="btn btn-secondary" data-action="dislike">👎🏻</button>
                 </div>
             </div>
@@ -90,7 +83,7 @@ function rebuildList(containerEl, items) {
                     <audio src="${item.value}" controls></audio>
                 </div>
                 <div class="card-body">
-                    <button class="btn btn-primary" data-action="like">👍🏼: ${item.likes}</button>
+                    <button class="btn btn-primary" data-action="like">👍🏼 ${item.likes}</button>
                     <button class="btn btn-secondary" data-action="dislike">👎🏻</button>
                 </div>
             </div>
