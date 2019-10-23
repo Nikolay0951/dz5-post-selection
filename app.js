@@ -56,17 +56,26 @@ function rebuildList(containerEl, items) {
             `;
         } else if (item.type === 'image') {
             liEl.innerHTML = `
+            <div class="card">
                 <img src="${item.value}" class="card-img-top">
-            `;
+                <div class="card-body"></div>
+            </div>
+                `;
         } else if (item.type === 'video') {
             liEl.innerHTML = `
-            <div class="embed-responsive embed-responsive-16by9">
-                <iframe class="embed-responsive-item" src="${item.value}"></iframe>
+            <div class="card">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="${item.value}"></iframe>
+                </div>
             </div>
             `;
         } else if (item.type === 'audio') {
             liEl.innerHTML = `
-               <audio src="${item.value}" controls></audio>
+            <div class="card">
+                <div class="card-img-top">
+                    <audio src="${item.value}" controls></audio>
+                </div>
+            </div>
             `;
         }
         liEl.onclick = function () {
