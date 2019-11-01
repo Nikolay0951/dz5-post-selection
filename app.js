@@ -27,6 +27,7 @@ addFormEl.onsubmit = function (ev) {
         value,
         type,
         likes: 0,
+        done: false,
     });
     console.log(links);
     linkEl.value = '';
@@ -89,20 +90,16 @@ function rebuildList(containerEl, items) {
             </div>
             `;
         }
-        liEl.onclick = function () {
-            item.done = !item.done;
-            rebuildList(containerEl, items);
-        };
         const likeEl = liEl.querySelector('[data-action=like]');
         likeEl.onclick = function () {
             item.likes++;
-            rebuildTree(containerEl, items);
+            rebuildList(containerEl, items);
         };
 
         const dislikeEl = liEl.querySelector('[data-action=dislike]');
         dislikeEl.onclick = function () {
             item.likes--;
-            rebuildTree(containerEl, items);
+            rebuildList(containerEl, items);
         };
         containerEl.appendChild(liEl);
     }
